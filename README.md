@@ -162,7 +162,7 @@ Timeline 可视化编辑动作 (KiraraActionSO)
 
 ## 配套仓库
 
-- **服务器端**：[Server-main](https://github.com/your-username/Server-main) — C# .NET 8 权威游戏服务器
+- **服务器端**：[Server-main](https://github.com/Ahri-MIko/GraduationProject_Server) — C# .NET 8 权威游戏服务器
 
 ---
 
