@@ -11,7 +11,7 @@
 | **引擎** | Unity 2022.3.8f1c1 + URP 渲染管线 |
 | **定位** | 3D 联机动作 RPG（ARPG），支持多人同房间战斗 |
 | **核心玩法** | 3 人队伍切人战斗、技能连招、闪避格挡、角色养成、任务对话、社交系统 |
-| **配套服务器** | [Server-main](https://github.com/your-username/Server-main)（C# .NET 8 权威服务器） |
+| **配套服务器** | [Server-main](https://github.com/Ahri-MIko/GraduationProject_Server)（C# .NET 8 权威服务器） |
 
 ---
 
