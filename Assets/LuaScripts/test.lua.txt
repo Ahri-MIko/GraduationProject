@@ -1,0 +1,22 @@
+print('hello world')
+
+require("BuffComponent")
+
+print("--加载ConfigBuff--")
+local configBuff_Weapon = require("ConfigBuff_Weapon")
+local configBuff_Disc = require("ConfigBuff_Disc")
+local configBuff_Role = require("ConfigBuff_Role")
+
+configBuffs = {}
+
+for k, v in pairs(configBuff_Weapon) do
+    configBuffs[k] = v
+end
+
+for k, v in pairs(configBuff_Disc) do
+    configBuffs[k] = v
+end
+
+for k, v in pairs(configBuff_Role) do
+    configBuffs[k] = v
+end

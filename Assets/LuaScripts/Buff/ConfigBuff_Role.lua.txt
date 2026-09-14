@@ -1,0 +1,23 @@
+local config = {}
+
+
+---@param self BuffComponent
+config.RoleEnergyRegen = function(self)
+
+    ---@param self BuffComponent
+    self.OnUpdate = function(self, dt)
+        local mul = 6
+        local maxEnergy = 120;
+        local currEnergy = self.set[self.EAttrType.CurrEnergy]
+
+        --print("RoleEnergyRegen.onUpdate", currEnergy, dt, self.set)
+
+        if currEnergy < maxEnergy then
+            local regen = self.set[self.EAttrType.EnergyRegen] * mul
+            self.set[self.EAttrType.CurrEnergy] = math.min(currEnergy + dt * regen, maxEnergy)
+        end
+    end
+end
+
+
+return config

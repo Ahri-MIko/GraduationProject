@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "「小小哥布林」",
+    "location": "Monster1",
+    "hp": 500000,
+    "atk": 50,
+    "def": 100,
+    "max_daze": 100,
+    "stun_duration": 10,
+    "stun_dmg_multiplier": 1.5,
+    "icon_loc": "IconMonster001"
+  },
+  {
+    "id": 2,
+    "name": "「反正很厉害的哥布林」",
+    "location": "Monster1",
+    "hp": 500000,
+    "atk": 100,
+    "def": 200,
+    "max_daze": 100,
+    "stun_duration": 10,
+    "stun_dmg_multiplier": 2,
+    "icon_loc": "IconMonster001"
+  }
+]

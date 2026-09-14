@@ -1,0 +1,44 @@
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 打包产物 / Build outputs (体积过大，不上传 GitHub)
+Bundles/
+WEBBuild/
+Andriod/
+yoo/
+
+# 大体积美术资源 (16GB，超出 GitHub 单文件/仓库限制，不上传)
+Assets/Artwork/
+
+# 压缩包 / archives
+*.zip
+*.unitypackage

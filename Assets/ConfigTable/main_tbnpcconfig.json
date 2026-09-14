@@ -1,0 +1,17 @@
+[
+  {
+    "npc_id": 1,
+    "name": "普普通通垃圾桶",
+    "dialogue_config_id": 8
+  },
+  {
+    "npc_id": 2,
+    "name": "有点特别的垃圾桶",
+    "dialogue_config_id": 9
+  },
+  {
+    "npc_id": 3,
+    "name": "神秘的草丛",
+    "dialogue_config_id": 0
+  }
+]

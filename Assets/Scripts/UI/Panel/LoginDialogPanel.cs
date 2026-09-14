@@ -1,0 +1,98 @@
+using System;
+using Cysharp.Threading.Tasks;
+using Kirara.Network;
+
+namespace Kirara.UI.Panel
+{
+    public class LoginDialogPanel : BasePanel
+    {
+        #region View
+        private bool _isBound;
+        private UnityEngine.UI.Button     UICloseBtn;
+        private TMPro.TMP_InputField      UsernameInput;
+        private TMPro.TMP_InputField      PasswordInput;
+        private UnityEngine.UI.Button     LoginBtn;
+        private UnityEngine.UI.Button     RegisterBtn;
+        private UnityEngine.CanvasGroup   CanvasGroup;
+        private UnityEngine.RectTransform Box;
+        public override void BindUI()
+        {
+            if (_isBound) return;
+            _isBound = true;
+            var b         = GetComponent<KiraraDirectBinder.KiraraDirectBinder>();
+            UICloseBtn    = b.Q<UnityEngine.UI.Button>(0, "UICloseBtn");
+            UsernameInput = b.Q<TMPro.TMP_InputField>(1, "UsernameInput");
+            PasswordInput = b.Q<TMPro.TMP_InputField>(2, "PasswordInput");
+            LoginBtn      = b.Q<UnityEngine.UI.Button>(3, "LoginBtn");
+            RegisterBtn   = b.Q<UnityEngine.UI.Button>(4, "RegisterBtn");
+            CanvasGroup   = b.Q<UnityEngine.CanvasGroup>(5, "CanvasGroup");
+            Box           = b.Q<UnityEngine.RectTransform>(6, "Box");
+        }
+        #endregion
+
+        public Action OnLoginSuccess;
+
+        public override void PlayEnter()
+        {
+            DialogPlayEnter(CanvasGroup, Box);
+        }
+
+        public override void PlayExit()
+        {
+            DialogPlayExit(CanvasGroup, Box);
+        }
+
+        private void Start()
+        {
+            UICloseBtn.onClick.AddListener(() => UIMgr.Instance.PopPanel(this));
+            LoginBtn.onClick.AddListener(() => LoginBtn_onClick().Forget());
+            RegisterBtn.onClick.AddListener(() => RegisterBtn_onClick().Forget());
+        }
+
+        private async UniTaskVoid LoginBtn_onClick()
+        {
+            try
+            {
+                var rsp = await NetFn.ReqLogin(new ReqLogin
+                {
+                    Username = UsernameInput.text,
+                    Password = PasswordInput.text
+                });
+                UIMgr.Instance.PopPanel(this);
+                OnLoginSuccess?.Invoke();
+            }
+            catch (ResultException e)
+            {
+                var rsp = (RspLogin)e.Msg;
+                var panel = UIMgr.Instance.PushPanel<DialogPanel>();
+                panel.Title = "提示";
+                panel.Content = rsp.Result.Msg;
+                panel.OkBtnOnClick.AddListener(() => UIMgr.Instance.PopPanel(panel));
+            }
+        }
+
+        private async UniTaskVoid RegisterBtn_onClick()
+        {
+            try
+            {
+                var rsp = await NetFn.ReqRegister(new ReqRegister
+                {
+                    Username = UsernameInput.text,
+                    Password = PasswordInput.text
+                });
+                var panel = UIMgr.Instance.PushPanel<DialogPanel>();
+                panel.Title = "提示";
+                panel.Content = rsp.Result.Msg;
+                panel.OkBtnOnClick.AddListener(() => UIMgr.Instance.PopPanel(panel));
+            }
+            catch (ResultException e)
+            {
+                var rsp = (RspRegister)e.Msg;
+                var panel = UIMgr.Instance.PushPanel<DialogPanel>();
+                panel.Title = "提示";
+                panel.Content = rsp.Result.Msg;
+                panel.OkBtnOnClick.AddListener(() => UIMgr.Instance.PopPanel(panel));
+            }
+        }
+    }
+}

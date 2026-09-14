@@ -1,0 +1,69 @@
+local NavigationPanel = {}
+
+function NavigationPanel:BindUI()
+    if self._isBound then
+        return
+    end
+    self._isBound = true
+    local b           = self.panel:GetComponent(typeof(CS.KiraraDirectBinder.KiraraDirectBinder))
+    self.SettingBtn   = b:Q(0, "SettingBtn")
+    self.InventoryBtn = b:Q(1, "InventoryBtn")
+    self.UIBackBtn    = b:Q(2, "UIBackBtn")
+    self.FriendBtn    = b:Q(3, "FriendBtn")
+    self.CanvasGroup  = b:Q(4, "CanvasGroup")
+end
+
+
+function NavigationPanel:Awake()
+    self.UIBackBtn.onClick:AddListener(function()
+        print("Pop Panel")
+        CS.Kirara.UIMgr.Instance:PopPanel(self.panel)
+    end)
+
+    self.SettingBtn.onClick:AddListener(function()
+        print("Push SettingsPanel")
+        CS.Kirara.UIMgr.Instance:PushPanel('SettingsPanel')
+    end)
+
+    self.InventoryBtn.onClick:AddListener(function()
+        print("Push InventoryPanel")
+        CS.Kirara.UIMgr.Instance:PushPanel('InventoryPanel')
+    end)
+
+    self.FriendBtn.onClick:AddListener(function()
+        print('Push SocialPanel')
+        CS.Kirara.UIMgr.Instance:PushPanel('SocialPanel')
+    end)
+
+    --self.TestBtn.onClick:AddListener(function()
+    --    print('TestBtn onClick')
+    --    local panel = CS.Kirara.UIMgr.Instance:PushPanel('DialogPanel')
+    --    panel.Title = '提示'
+    --    panel.Content = '热更新测试'
+    --    panel.OkText = 'Ciallo~'
+    --    panel.OkBtnOnClick:AddListener(function()
+    --        CS.Kirara.UIMgr.Instance:PopPanel(panel)
+    --    end)
+    --end)
+end
+
+function NavigationPanel:PlayEnter()
+    self.CanvasGroup.alpha = 0
+    local t = self.CanvasGroup:DOFade(1, 0.1)
+    t.onComplete = function()
+        if self.panel.onPlayEnterFinished ~= nil then
+            self.panel.onPlayEnterFinished()
+        end
+    end
+end
+
+function NavigationPanel:PlayExit()
+    local t = self.CanvasGroup:DOFade(0, 0.1)
+    t.onComplete = function()
+        if self.panel.onPlayExitFinished ~= nil then
+            self.panel.onPlayExitFinished()
+        end
+    end
+end
+
+return NavigationPanel

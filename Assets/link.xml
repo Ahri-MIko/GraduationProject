@@ -1,0 +1,10 @@
+<linker>
+  <assembly fullname="YooAsset">
+    <type fullname="YooAsset.DefaultWebServerFileSystem" preserve="all" />
+    <type fullname="YooAsset.DefaultWebRemoteFileSystem" preserve="all" />
+    
+    <type fullname="YooAsset.WebPlayModeParameters" preserve="all" />
+    
+    <type fullname="YooAsset.IFileSystem" preserve="all" />
+  </assembly>
+</linker>

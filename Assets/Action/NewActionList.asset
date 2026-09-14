@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5555271558791861878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a4cdb4b09a4c76b2c48b13080525b7, type: 3}
+  m_Name: 123
+  m_EditorClassIdentifier: 
+  animName: 
+  tracks:
+  - {fileID: 7451988125404609650}
+  - {fileID: -1480477672914191868}
+--- !u!114 &-1480477672914191868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b5f29794294192a221c349da96e6f6, type: 3}
+  m_Name: 2
+  m_EditorClassIdentifier: 
+  notifies: []
+  notifyStates: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed321d932ba1447386531396a9bf7b49, type: 3}
+  m_Name: NewActionList
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: -5555271558791861878}
+  - {fileID: 6663387065185659800}
+--- !u!114 &6663387065185659800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a4cdb4b09a4c76b2c48b13080525b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animName: 
+  tracks: []
+--- !u!114 &7451988125404609650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b5f29794294192a221c349da96e6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notifies: []
+  notifyStates: []
